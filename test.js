@@ -52,8 +52,8 @@ export class ModelingComponent implements OnInit {
     3: true
   };
 
-  constructor(private fb: FormBuilder,
-              private modelingService: ModelingService) {
+  constructor(fb: FormBuilder,
+              modelingService: ModelingService) {
       this.nonPreferredData = [];
       this.fromDataFullConvertion = [];
       this.toDataFullConvertion = [];
