@@ -1,3 +1,8 @@
-function myFunction(p1, p2) {
-  return p1 * p2;   // The function returns the product of p1 and p2
-}
+    MedService.getProducts = async (context) => {
+        const result = await MedRepo.getProducts(context);
+        if (result) {
+          return dbHelpers.parseProducts(result[0]);
+        } else {
+          return [];
+        }
+    };
