@@ -129,7 +129,7 @@ export class ModelingComponent implements OnInit {
   setupConvertedDataControls(regionIndex: number,  preferredRow: MedHistory) {
     const prefCostValue = preferredRow.costPerRxNr;
     const percentConNewVolumeValue = 90;
-    const control = this.viewByForm.get('items')['controls'][regionIndex].get('convertedData') as FormArray;
+    const control = this.viewByForm.get('items')['controls'][regionIndex].get('convertedData');
     control.push(this.fb.group({
       uniqueId: new FormControl(this.nonPreferredRow[regionIndex].uniqueId),
       nonPrefMedHistory: this.fb.group(this.nonPreferredRow[regionIndex]),
@@ -185,7 +185,7 @@ export class ModelingComponent implements OnInit {
     for (const formKey of Object.keys(formValue)) {
       const cloneRow = JSON.parse(JSON.stringify(pushedRow));
       if (formValue[formKey].regionCd !== 'KP') {
-        const control = this.viewByForm.get('items')['controls'][formKey].get('convertedData') as FormArray;
+        const control = this.viewByForm.get('items')['controls'][formKey].get('convertedData');
         const i = this.viewByForm.value.items[formKey].convertedData.length;
         let isNonPrefrredRowFound = false;
         for (const nonPrefKey of Object.keys(this.nonPreferredData)) {
@@ -708,7 +708,7 @@ export class ModelingComponent implements OnInit {
   setFormModelingData() {
     const selectedStateData = this.StatesData;
     for (const stateKey of Object.keys(selectedStateData)) {
-      const control = this.viewByForm.get('items') as FormArray;
+      const control = this.viewByForm.get('items');
       const nonPreferredData = this.setRegionNonPreferred(selectedStateData[stateKey].id);
       const preferredData = this.setRegionPreferred(selectedStateData[stateKey].id);
       const fControl = this.fb.group({
