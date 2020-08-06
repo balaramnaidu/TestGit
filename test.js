@@ -105,7 +105,7 @@ export class ModelingComponent implements OnInit {
   }
 
   selectedItem(row: MedHistory, rowIndex: number, regionIndex: number) {
-    const control = this.viewByForm.get('items')['controls'][regionIndex].get('convertedData') as FormArray;
+    const control = this.viewByForm.get('items')['controls'][regionIndex].get('convertedData');
     const i = control.value.length;
     const preferredRow = row;
     if (this.nonPreferredRow[regionIndex]) {
